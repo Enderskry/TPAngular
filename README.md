@@ -1,3 +1,21 @@
+# TP Biere
+
+## Champs:
+- Nom de la bière (custom Pipe pour première lettre en majuscule)
+- Type de la bière (select option: blonde, brune, etc...)
+- Degré d'alcool (custom pipe pour ajouter le sugne 'degré')
+- Format (custom pipe pour ajouter 'cl')
+- Prix (Pipe pour ajouter 'Euros')
+- URL de la photo (ou upload en localStorage)
+
+- Date de création de la fiche (pipe pour formatter la date) - champs automatique
+
+## Composants:
+- fiche-biere
+- liste-biere
+
+
+
 # TPAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.18.
