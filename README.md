@@ -11,8 +11,8 @@
 - Date de création de la fiche (pipe pour formatter la date) - champs automatique
 
 ## Composants:
-- fiche-biere
-- liste-biere
+- biere
+- list-biere
 
 
 
