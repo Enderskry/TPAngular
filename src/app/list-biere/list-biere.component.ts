@@ -25,10 +25,9 @@ export class ListBiereComponent implements OnInit {
     localStorage.setItem("bieres", JSON.stringify(this.bieres));
   }
 
-  addTodo() {
+  addBiere() {
     console.log("Ajout de la bière", this.newBiere);
     this.bieres.push({
-      // id: this.todos.length +1,
       id: this.bieres.reduce((acc, t) => acc <= t.id ? t.id + 1 : acc, 1),
       nom: this.newBiere.nom,
       type: this.newBiere.type,
