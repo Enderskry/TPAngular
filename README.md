@@ -14,7 +14,13 @@
 - biere
 - list-biere
 
-
+# A UTILISER (OBLIGATOIRE):
+- Angular Material
+- Reactiv Forms
+- Validator
+- Custom Validator
+- Pipe
+- Custon Pipe
 
 # TPAngular
 
