@@ -6,22 +6,8 @@
 
 <!-- FORM BIERE -->
 <form class="container" name="formNewBiere">
-    <fieldset>
-        <legend>AJOUTER UNE BIERE :</legend>
-
-        <!-- <mat-slider min="1" max="100" step="1" value="1" style="position: relative; 
-    width: 200px; 
-    height: 50px; 
-    display: block; 
-    background-color: pink;">
-        </mat-slider>
-        <mat-slider min="1" max="100" step="1" value="1" style="position: relative; 
-    width: 200px; 
-    height: 50px; 
-    display: block; 
-    background-color:burlywood;">
-        </mat-slider> -->
-
+    <fieldset> 
+        <legend class="text-center  ">CREER UNE NOUVELLE FICHE BIERE :</legend>
         <div class="row">
             <div class=" col input-group-append">
                 <mat-form-field class="largeurEcran">
@@ -35,9 +21,14 @@
                 <mat-form-field class="largeurEcran">
                     <mat-label>Type de Bière</mat-label>
                     <mat-select>
-                        <mat-option *ngFor="let type of types" [value]="type.value">
-                            {{type.viewValue}}
-                        </mat-option>
+                        <mat-option>Choisissez un type de bière...</mat-option>
+                        <mat-option value="blonde">Blonde</mat-option>
+                        <mat-option value="brune">Brune</mat-option>
+                        <mat-option value="ambree">Ambrée</mat-option>
+                        <mat-option value="blanche  ">Blanche</mat-option>
+                        <!-- <mat-option *ngFor="let type of types" [value]="type.value">
+                            {{type.viewValue}} -->
+                        <!-- </mat-option> -->
                     </mat-select>
                 </mat-form-field>
             </div>
@@ -79,12 +70,17 @@
             <div class=" col input-group-append">
                 <mat-form-field class="largeurEcran">
                     <input matInput [matDatepicker]="picker"
-                        placeholder="Date de création de la bière(mettre nom de la bière)">
+                        placeholder="Date de création de la bière (mettre nom de la bière)">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
-                    <!-- <button class="btn btn-dark" id="basic-addon2" (click)="addTodo()">Ajouter</button> -->
                 </mat-form-field>
+
             </div>
         </div>
     </fieldset>
+    <div class="row">
+        <div class=" col input-group-append justify-content-center">
+            <button class="btn btn-dark " id="basic-addon2">Ajouter la bière</button>
+        </div>
+    </div>
 </form>
