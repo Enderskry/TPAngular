@@ -1,14 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import Biere from '../biere';
-import { MatSliderModule } from '@angular/material/slider';
 
 @Component({
   selector: 'app-list-biere',
   templateUrl: './list-biere.component.html',
   styleUrls: ['./list-biere.component.css']
 })
-
-
 export class ListBiereComponent implements OnInit {
   bieres: Biere[];
   newBiere: Biere;
