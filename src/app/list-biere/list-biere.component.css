@@ -1,0 +1,10 @@
+.listesBieres {
+  border: 1px solid orange;
+  border-radius: 3px;
+  padding: 5px 8px;
+  height: 150px;
+}
+
+.largeurEcran{
+  width: 100%;
+}

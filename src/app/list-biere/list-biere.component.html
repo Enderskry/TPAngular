@@ -1,8 +1,90 @@
-<p>list-biere works!</p>
-<div class="ListBieres">
+<div class="ListBieres container listesBieres">
+    <p>list-biere works!</p>
     <app-biere *ngFor="let biere of bieres"></app-biere>
     <!-- <app-biere *ngFor="let biere of bieres" [t]="biere" ></app-biere> -->
 </div>
 
 <!-- FORM BIERE -->
-<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
+<form class="container" name="formNewBiere">
+    <fieldset>
+        <legend>AJOUTER UNE BIERE :</legend>
+
+        <!-- <mat-slider min="1" max="100" step="1" value="1" style="position: relative; 
+    width: 200px; 
+    height: 50px; 
+    display: block; 
+    background-color: pink;">
+        </mat-slider>
+        <mat-slider min="1" max="100" step="1" value="1" style="position: relative; 
+    width: 200px; 
+    height: 50px; 
+    display: block; 
+    background-color:burlywood;">
+        </mat-slider> -->
+
+        <div class="row">
+            <div class=" col input-group-append">
+                <mat-form-field class="largeurEcran">
+                    <input matInput type="text" placeholder="Nom de la Bière..." />
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class=" col input-group-append">
+                <mat-form-field class="largeurEcran">
+                    <mat-label>Type de Bière</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let type of types" [value]="type.value">
+                            {{type.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class=" col input-group-append">
+                <mat-form-field class="largeurEcran">
+                    <input matInput type="text" placeholder="Degré d'alcool" />
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class=" col input-group-append">
+                <mat-form-field class="largeurEcran">
+                    <input matInput type="text" placeholder="Format (en cl)" />
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class=" col input-group-append">
+                <mat-form-field class="largeurEcran">
+                    <input matInput type="text" placeholder="Prix" />
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class=" col input-group-append">
+                <mat-form-field class="largeurEcran">
+                    <input matInput type="text" placeholder="Url d'une image de cette bière" />
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class=" col input-group-append">
+                <mat-form-field class="largeurEcran">
+                    <input matInput [matDatepicker]="picker"
+                        placeholder="Date de création de la bière(mettre nom de la bière)">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <!-- <button class="btn btn-dark" id="basic-addon2" (click)="addTodo()">Ajouter</button> -->
+                </mat-form-field>
+            </div>
+        </div>
+    </fieldset>
+</form>
