@@ -1,11 +1,10 @@
 export default interface Biere {
-    Id: number;
-    Nom: string;
-    Type: string;
-    Degré: number;
-    Format: number;
-    Prix: number;
-    Url: string;
-    DateCreation: Date;
-
+    id: number;
+    nom: string;
+    type: string;
+    degre: number;
+    format: number;
+    prix: number;
+    url: string;
+    dateCreation: Date;
 }
