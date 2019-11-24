@@ -59,6 +59,7 @@ export class ListBiereComponent implements OnInit {
   deleteBiere(biere: Biere) {
     console.log("suppression de la biere : ", biere);
     this.bieres = this.bieres.filter(t => t.id !== biere.id);
+    this.saveBieres();
   }
 
 }
