@@ -1,10 +1,20 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import Biere from '../biere';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+
+const ANIMATION_TIME = 300
 
 @Component({
   selector: 'app-biere',
   templateUrl: './biere.component.html',
   styleUrls: ['./biere.component.css'],
+  animations: [
+    trigger('supprBiere', [
+      state('isNotDeleting', style({ opacity: 1 })),
+      state('isDeleting', style({opacity: 0 })),
+      transition('isNotDeleting => isDeleting', animate(ANIMATION_TIME))
+
+    ])]
 })
 export class BiereComponent implements OnInit {
   
@@ -17,6 +27,12 @@ export class BiereComponent implements OnInit {
   @Output()
   biereAModif: Biere
 
+  @Output()
+  deleteVisu = new EventEmitter<Biere>();
+
+
+  isDeleting = false
+
   constructor() { }
 
   ngOnInit() {
@@ -25,6 +41,8 @@ export class BiereComponent implements OnInit {
 
   delete() {
     this.deleteEvent.emit();
+    this.isDeleting = true
+    setTimeout(() => this.deleteVisu.emit(this.b), ANIMATION_TIME + 50)
   }
   modif() {
     console.log(this.b);
