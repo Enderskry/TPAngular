@@ -44,7 +44,7 @@ export class ListBiereComponent implements OnInit {
     Validators.required,
     Validators.pattern('^[0-9]+(?:[.,][0-9]+)?$')
 ]);
-  urlB: string;
+  urlB= new FormControl('');
   dateCreationB= new FormControl('', [
     Validators.required,
 ]);
@@ -80,7 +80,7 @@ export class ListBiereComponent implements OnInit {
       degre: this.degreB.value,
       format: this.formatB.value,
       prix: this.prixB.value,
-      url: this.urlB,
+      url: this.urlB.value,
       dateCreation: this.dateCreationB.value,
     });
     this.saveBieres();
@@ -89,7 +89,7 @@ export class ListBiereComponent implements OnInit {
     this.degreB.setValue('');
     this.formatB.setValue('');
     this.prixB.setValue('');
-    this.urlB = null;
+    this.urlB.setValue('');
     this.dateCreationB.setValue('');
 
   }
