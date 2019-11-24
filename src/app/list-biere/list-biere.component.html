@@ -1,1 +1,108 @@
-<p>list-biere works!</p>
+<p class="text-center">Une liste de bières...</p>
+<div class="container pleineLargeur">
+    <div class="row">
+        <div class="col">
+            <div class="ListBieres container listesBieres shadow">
+                <!-- <app-biere *ngFor="let biere of bieres"></app-biere> -->
+                <app-biere *ngFor="let biere of bieres" [b]="biere"></app-biere>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FORM BIERE -->
+<div class="row">
+        <div class="col justify-content-center">
+            <p class="text-center">
+                Nom de la Bière (ReactiveForm): <br />{{ nomB.value }}
+            </p>
+        </div>
+    </div>
+
+
+<!-- <form class="container" name="formNewBiere"> -->
+<div class="container shadow" name="formNewBiere" id="formNewBiere">
+    <fieldset>
+        <legend class="text-center  ">CREER UNE NOUVELLE FICHE BIERE :</legend>
+        <div class="row">
+            <div class=" col input-group-append">
+                <mat-form-field class="largeurEcran">
+                    <!-- <input matInput type="text" placeholder="Nom de la Bière..." name="nom" [(ngModel)]="nomB" /> -->
+                    <input matInput type="text" placeholder="Nom de la Bière..." name="nom" [formControl]="nomB" />
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class=" col input-group-append">
+                <mat-form-field class="largeurEcran">
+                    <mat-label>Type de Bière</mat-label>
+                    <mat-select name="type" [(ngModel)]="typeB">
+                        <mat-option>Choisissez un type de bière...</mat-option>
+                        <mat-option value="blonde">Blonde</mat-option>
+                        <mat-option value="brune">Brune</mat-option>
+                        <mat-option value="ambree">Ambrée</mat-option>
+                        <mat-option value="blanche  ">Blanche</mat-option>
+                        <!-- <mat-option *ngFor="let type of types" [value]="type.value">
+                            {{type.viewValue}} -->
+                        <!-- </mat-option> -->
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class=" col input-group-append">
+                <mat-form-field class="largeurEcran">
+                    <input matInput type="text" placeholder="Degré d'alcool" name="degre" [(ngModel)]="degreB" />
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class=" col input-group-append">
+                <mat-form-field class="largeurEcran">
+                    <input matInput type="number" min="0" placeholder="Format (en cl)" name="formatB"
+                        [(ngModel)]="formatB" />
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class=" col input-group-append">
+                <mat-form-field class="largeurEcran">
+                    <input matInput type="number" min="0.00" step="0.25" placeholder="Prix" name="prixB"
+                        [(ngModel)]="prixB" />
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class=" col input-group-append">
+                <mat-form-field class="largeurEcran">
+                    <input matInput type="text" placeholder="Url d'une image de cette bière" name="urlB"
+                        [(ngModel)]="urlB" />
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class=" col input-group-append">
+                <mat-form-field class="largeurEcran">
+                    <input matInput [matDatepicker]="picker"
+                        placeholder="Date de création de la bière (mettre nom de la bière)" name="dateCreation"
+                        [(ngModel)]="dateCreationB">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+            </div>
+        </div>
+    </fieldset>
+    <div class="row">
+        <div class=" col input-group-append justify-content-center">
+            <button class="btn btn-dark " id="basic-addon2" (click)="addBiere()">Ajouter la bière</button>
+        </div>
+    </div>
+</div>
+
+<!-- </form> -->

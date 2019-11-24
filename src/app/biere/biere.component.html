@@ -1,1 +1,15 @@
-<p>biere works!</p>
+<div class="row uneBiere shadow">
+    <div class="col">
+
+        <h4 class="text-center">{{ b.nom | titlecase }}</h4>
+        <p>Type : {{ b.type | titlecase }}</p>
+        <p>Alcool : {{b.degre}}° </p>
+        <p>Format : {{b.format}} cl</p>
+        <p>Prix : {{b.prix  | currency:'EUR'}}</p>
+        <p>Url de l'image :
+            <img src="{{b.url}}" width="20%" height="auto">
+        </p>
+        <p>Date de création de {{ b.nom | titlecase }} : {{ b.dateCreation | date:"MM/dd/yy" }}</p>
+
+    </div>
+</div>
