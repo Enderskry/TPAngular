@@ -8,6 +8,9 @@
         <p>Prix : {{b.prix  | currency:'EUR'}}</p>
         <p>Url de l'image :
             <img src="{{b.url}}" width="20%" height="auto">
+            <a href="{{b.url}}" target="_blank">
+                {{b.url | urlCourte }}
+            </a>
         </p>
         <p>Date de création de {{ b.nom | titlecase }} : {{ b.dateCreation | date:"MM/dd/yy" }}</p>
 
