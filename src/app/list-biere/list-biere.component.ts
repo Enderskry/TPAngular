@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Biere from '../biere';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {ValidateDegre} from '../degre_Validator'
 
 @Component({
   selector: 'app-list-biere',
@@ -9,13 +10,29 @@ import { FormControl } from '@angular/forms';
 })
 export class ListBiereComponent implements OnInit {
   bieres: Biere[];
-  nomB = new FormControl("");
-  typeB: string;
-  degreB: number;
-  formatB: number;
-  prixB: number;
+  nomB = new FormControl('', [
+    Validators.required,
+    Validators.pattern("[a-zA-Z0-9- ']*")
+]);
+  typeB= new FormControl('', [
+    Validators.required,
+]);
+  degreB= new FormControl('', [
+    Validators.required,
+    Validators.pattern('^[0-9]+(?:[.,][0-9]+)?$'),
+    ValidateDegre,
+]);
+  formatB= new FormControl('', [
+    Validators.required,
+]);
+  prixB= new FormControl('', [
+    Validators.required,
+    Validators.pattern('^[0-9]+(?:[.,][0-9]+)?$')
+]);
   urlB: string;
-  dateCreationB: string;
+  dateCreationB= new FormControl('', [
+    Validators.required,
+]);
 
   constructor() { }
 
@@ -38,12 +55,12 @@ export class ListBiereComponent implements OnInit {
     this.bieres.push({
       id: this.bieres.reduce((acc, t) => acc <= t.id ? t.id + 1 : acc, 1),
       nom: this.nomB.value,
-      type: this.typeB,
-      degre: this.degreB,
-      format: this.formatB,
-      prix: this.prixB,
+      type: this.typeB.value,
+      degre: this.degreB.value,
+      format: this.formatB.value,
+      prix: this.prixB.value,
       url: this.urlB,
-      dateCreation: this.dateCreationB
+      dateCreation: this.dateCreationB.value,
     });
     this.saveBieres();
     this.nomB.setValue(''); // reactive Form

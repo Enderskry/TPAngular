@@ -18,3 +18,4 @@ export class BiereComponent implements OnInit {
   }
 
 }
+
