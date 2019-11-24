@@ -14,6 +14,6 @@
             <a href="{{b.url}}" target="_blank">{{b.url | urlCourte }}</a>)</p>
         <p>Date de création de {{ b.nom | titlecase }} : {{ b.dateCreation | date:"MM/dd/yy" }}</p>
         <button type="button" class="btn btn-danger" (click)="delete()">Supprimer</button>
-        <button type="button" class="btn btn-warning" (click)="modif()">Modifier</button>
+        <button type="button" class="btn btn-warning" (click)="modif()" hidden>Modifier</button>
     </div>
 </div>
