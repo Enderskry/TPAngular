@@ -1,7 +1,8 @@
 import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
 import { Component, OnInit, Input } from '@angular/core';
 import Biere from '../biere';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {ValidateDegre} from '../degre_Validator'
 
 @Component({
   selector: 'app-list-biere',
@@ -24,22 +25,34 @@ export class ListBiereComponent implements OnInit {
 
 
   bieres: Biere[];
-  nomB = new FormControl("");
-  typeB = new FormControl("");
-  degreB = new FormControl("");
-  formatB = new FormControl("");
-  prixB = new FormControl("");
-  urlB = new FormControl("");
-  dateCreationB = new FormControl("");
-
-  @Input()
-  biereAModif: Biere;
+  nomB = new FormControl('', [
+    Validators.required,
+    Validators.pattern("[a-zA-Z0-9- ']*")
+]);
+  typeB= new FormControl('', [
+    Validators.required,
+]);
+  degreB= new FormControl('', [
+    Validators.required,
+    Validators.pattern('^[0-9]+(?:[.,][0-9]+)?$'),
+    ValidateDegre,
+]);
+  formatB= new FormControl('', [
+    Validators.required,
+]);
+  prixB= new FormControl('', [
+    Validators.required,
+    Validators.pattern('^[0-9]+(?:[.,][0-9]+)?$')
+]);
+  urlB: string;
+  dateCreationB= new FormControl('', [
+    Validators.required,
+]);
 
   constructor() { }
 
   ngOnInit() {
     this.loadBieres();
-    console.log(this.biereAModif);
   }
   
 
@@ -67,8 +80,8 @@ export class ListBiereComponent implements OnInit {
       degre: this.degreB.value,
       format: this.formatB.value,
       prix: this.prixB.value,
-      url: this.urlB.value,
-      dateCreation: this.dateCreationB.value
+      url: this.urlB,
+      dateCreation: this.dateCreationB.value,
     });
     this.saveBieres();
     this.nomB.setValue(''); // reactive Form
@@ -76,7 +89,7 @@ export class ListBiereComponent implements OnInit {
     this.degreB.setValue('');
     this.formatB.setValue('');
     this.prixB.setValue('');
-    this.urlB.setValue('');
+    this.urlB = null;
     this.dateCreationB.setValue('');
 
   }
