@@ -4,7 +4,7 @@
         <div class="col">
             <div class="ListBieres container listesBieres shadow" [@animCreaBiere]="animCreaBiere">
                 <!-- <app-biere *ngFor="let biere of bieres"></app-biere> -->
-                <app-biere *ngFor="let biere of bieres" (deleteEvent)="deleteBiere(biere)" [b]="biere"></app-biere>
+                <app-biere *ngFor="let biere of bieres" (deleteEvent)="deleteBiere(biere)" [b]="biere" ></app-biere>
             </div>
         </div>
     </div>
@@ -27,7 +27,7 @@
             <div class=" col input-group-append">
                 <mat-form-field class="largeurEcran">
                     <!-- <input matInput type="text" placeholder="Nom de la Bière..." name="nom" [(ngModel)]="nomB" /> -->
-                    <input matInput type="text" placeholder="Nom de la Bière..." name="nom" [formControl]="nomB" />
+                    <input matInput type="text" placeholder="Nom de la Bière..." name="nomB" required  [formControl]="nomB" />
                 </mat-form-field>
             </div>
         </div>
@@ -36,7 +36,7 @@
             <div class=" col input-group-append">
                 <mat-form-field class="largeurEcran">
                     <mat-label>Type de Bière</mat-label>
-                    <mat-select name="type" [(ngModel)]="typeB">
+                    <mat-select name="type" [formControl]="typeB" required >
                         <mat-option>Choisissez un type de bière...</mat-option>
                         <mat-option value="blonde">Blonde</mat-option>
                         <mat-option value="brune">Brune</mat-option>
@@ -53,7 +53,7 @@
         <div class="row">
             <div class=" col input-group-append">
                 <mat-form-field class="largeurEcran">
-                    <input matInput type="text" placeholder="Degré d'alcool" name="degre" [(ngModel)]="degreB" />
+                    <input matInput type="text" placeholder="Degré d'alcool" name="degre" [formControl]="degreB" required />
                 </mat-form-field>
             </div>
         </div>
@@ -62,7 +62,7 @@
             <div class=" col input-group-append">
                 <mat-form-field class="largeurEcran">
                     <input matInput type="number" min="0" placeholder="Format (en cl)" name="formatB"
-                        [(ngModel)]="formatB" />
+                    [formControl]="formatB" required />
                 </mat-form-field>
             </div>
         </div>
@@ -71,7 +71,7 @@
             <div class=" col input-group-append">
                 <mat-form-field class="largeurEcran">
                     <input matInput type="number" min="0.00" step="0.25" placeholder="Prix" name="prixB"
-                        [(ngModel)]="prixB" />
+                    [formControl]="prixB" required />
                 </mat-form-field>
             </div>
         </div>
@@ -80,7 +80,7 @@
             <div class=" col input-group-append">
                 <mat-form-field class="largeurEcran">
                     <input matInput type="text" placeholder="Url d'une image de cette bière" name="urlB"
-                        [(ngModel)]="urlB" />
+                    [formControl]="urlB" required />
                 </mat-form-field>
             </div>
         </div>
@@ -90,7 +90,7 @@
                 <mat-form-field class="largeurEcran">
                     <input matInput [matDatepicker]="picker"
                         placeholder="Date de création de la bière (mettre nom de la bière)" name="dateCreation"
-                        [(ngModel)]="dateCreationB">
+                        [formControl]="dateCreationB" required />
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
@@ -104,5 +104,6 @@
         </div>
     </div>
 </div>
-
+<!-- <p>{{biere.nom}}</p> -->
+<p *ngIf="biereAModif != null">There are many heroes!</p>
 <!-- </form> -->

@@ -1,5 +1,5 @@
 import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import Biere from '../biere';
 import { FormControl } from '@angular/forms';
 
@@ -10,13 +10,10 @@ import { FormControl } from '@angular/forms';
   animations: [
     trigger('animCreaBiere', [
       transition('* => *', [
-        query(':enter', style({ opacity: 0 }), { optional: true }),
-
         query(':enter', stagger('300ms', [
           animate('.5s ease-in', keyframes([
-            style({ opacity: 0, transform: 'translateY(-75%)', offset: 0 }),
-            style({ opacity: .5, transform: 'translateY(35px)', offset: .3 }),
-            style({ opacity: 1, transform: 'translateY(0px)', offset: 1 })
+            style({ color: 'yellow' }),
+            style({ color: 'black' })
           ]))
         ]), { optional: true })
       ])
@@ -24,20 +21,32 @@ import { FormControl } from '@angular/forms';
   ]
 })
 export class ListBiereComponent implements OnInit {
+
+
   bieres: Biere[];
   nomB = new FormControl("");
-  typeB: string;
-  degreB: number;
-  formatB: number;
-  prixB: number;
-  urlB: string;
-  dateCreationB: string;
+  typeB = new FormControl("");
+  degreB = new FormControl("");
+  formatB = new FormControl("");
+  prixB = new FormControl("");
+  urlB = new FormControl("");
+  dateCreationB = new FormControl("");
+
+  @Input()
+  biereAModif: Biere;
 
   constructor() { }
 
   ngOnInit() {
     this.loadBieres();
+    console.log(this.biereAModif);
   }
+  
+
+
+
+
+  
 
   loadBieres() {
     const bieres = localStorage.getItem("bieres");
@@ -54,21 +63,21 @@ export class ListBiereComponent implements OnInit {
     this.bieres.push({
       id: this.bieres.reduce((acc, t) => acc <= t.id ? t.id + 1 : acc, 1),
       nom: this.nomB.value,
-      type: this.typeB,
-      degre: this.degreB,
-      format: this.formatB,
-      prix: this.prixB,
-      url: this.urlB,
-      dateCreation: this.dateCreationB
+      type: this.typeB.value,
+      degre: this.degreB.value,
+      format: this.formatB.value,
+      prix: this.prixB.value,
+      url: this.urlB.value,
+      dateCreation: this.dateCreationB.value
     });
     this.saveBieres();
     this.nomB.setValue(''); // reactive Form
-    this.typeB = null;
-    this.degreB = null;
-    this.formatB = null;
-    this.prixB = null;
-    this.urlB = null;
-    this.dateCreationB = null;
+    this.typeB.setValue('');
+    this.degreB.setValue('');
+    this.formatB.setValue('');
+    this.prixB.setValue('');
+    this.urlB.setValue('');
+    this.dateCreationB.setValue('');
 
   }
 

@@ -1,4 +1,4 @@
-<div class="row uneBiere shadow">
+<div class="row uneBiere shadow" >
     <div class="col" >
         <h4 class="text-center">{{ b.nom | titlecase }}</h4>
         <p>Type : {{ b.type | titlecase }}</p>
@@ -9,7 +9,7 @@
         <p>(Image recupérée sur :
             <a href="{{b.url}}" target="_blank">{{b.url | urlCourte }}</a>)</p>
         <p>Date de création de {{ b.nom | titlecase }} : {{ b.dateCreation | date:"MM/dd/yy" }}</p>
+        <button type="button" class="btn btn-danger" (click)="delete()">Supprimer</button>
+        <button type="button" class="btn btn-warning" (click)="modif()">Modifier</button>
     </div>
 </div>
-<button type="button" class="btn btn-danger" (click)="delete()">Supprimer</button>
-<button type="button" class="btn btn-warning">Modifier</button>
