@@ -8,3 +8,4 @@ export default interface Biere {
     url: string;
     dateCreation: string;
 }
+
