@@ -7,9 +7,7 @@
         <p>Format : {{b.format}} cl</p>
         <p>Prix : {{b.prix  | currency:'EUR'}}</p>
         <p>Url de l'image :
-            <a href="{{b.url}}" target="_blank">
-                {{b.url | urlCourte }}
-            </a>
+            <img src="{{b.url}}" width="20%" height="auto">
         </p>
         <p>Date de création de {{ b.nom | titlecase }} : {{ b.dateCreation | date:"MM/dd/yy" }}</p>
 
