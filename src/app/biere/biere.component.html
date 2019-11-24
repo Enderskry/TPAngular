@@ -1,13 +1,17 @@
 <div class="row uneBiere">
     <div class="col">
-        
-        <h4>{{b.nom}}</h4>
-        <h5>Type :  {{b.type}}</h5>
-        <h5>Degré :  {{b.degre}}</h5>
-        <h5>Format :  {{b.format}}</h5>
-        <h5>Prix :  {{b.prix}}</h5>
-        <h5>Url :  {{b.url}}</h5>
-        <h5>Date création :  {{b.dateCreation}}</h5>
-          
+
+        <h4 class="text-center">{{b.nom | titlecase}}</h4>
+        <p>Type : {{b.type}}</p>
+        <p>Degré : {{b.degre}}</p>
+        <p>Format : {{b.format}}</p>
+        <p>Prix : {{b.prix  | currency:'EUR'}}</p>
+        <p>Url :
+            <a href="{{b.url}}" target="_blank">
+                {{b.url | urlCourte }}
+            </a>
+        </p>
+        <p>Date création : {{b.dateCreation | date:"MM/dd/yy" }}</p>
+
     </div>
 </div>

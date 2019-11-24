@@ -13,6 +13,7 @@ import { BiereComponent } from './biere/biere.component';
 import { DateCreationBiereComponent } from './date-creation-biere/date-creation-biere.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { UrlCourtePipe } from './pipes/url-courte.pipe';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { MatSelectModule } from '@angular/material/select';
     ListBiereComponent,
     BiereComponent,
     DateCreationBiereComponent,
+    UrlCourtePipe,
   ],
   imports: [
     BrowserModule,
