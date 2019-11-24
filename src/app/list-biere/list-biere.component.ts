@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
+import { Component, OnInit, Input } from '@angular/core';
 import Biere from '../biere';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import {ValidateDegre} from '../degre_Validator'
@@ -6,9 +7,23 @@ import {ValidateDegre} from '../degre_Validator'
 @Component({
   selector: 'app-list-biere',
   templateUrl: './list-biere.component.html',
-  styleUrls: ['./list-biere.component.css']
+  styleUrls: ['./list-biere.component.css'],
+  animations: [
+    trigger('animCreaBiere', [
+      transition('* => *', [
+        query(':enter', stagger('300ms', [
+          animate('.5s ease-in', keyframes([
+            style({ color: 'yellow' }),
+            style({ color: 'black' })
+          ]))
+        ]), { optional: true })
+      ])
+    ])
+  ]
 })
 export class ListBiereComponent implements OnInit {
+
+
   bieres: Biere[];
   nomB = new FormControl('', [
     Validators.required,
@@ -39,6 +54,12 @@ export class ListBiereComponent implements OnInit {
   ngOnInit() {
     this.loadBieres();
   }
+  
+
+
+
+
+  
 
   loadBieres() {
     const bieres = localStorage.getItem("bieres");
@@ -64,18 +85,19 @@ export class ListBiereComponent implements OnInit {
     });
     this.saveBieres();
     this.nomB.setValue(''); // reactive Form
-    this.typeB = null;
-    this.degreB = null;
-    this.formatB = null;
-    this.prixB = null;
+    this.typeB.setValue('');
+    this.degreB.setValue('');
+    this.formatB.setValue('');
+    this.prixB.setValue('');
     this.urlB = null;
-    this.dateCreationB = null;
+    this.dateCreationB.setValue('');
 
   }
 
   deleteBiere(biere: Biere) {
     console.log("suppression de la biere : ", biere);
     this.bieres = this.bieres.filter(t => t.id !== biere.id);
+    this.saveBieres();
   }
 
 }

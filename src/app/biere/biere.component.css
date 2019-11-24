@@ -3,4 +3,17 @@
     border-radius: 15px;
     margin:20px 5px 20px 5px;
     width: 100%;
+    padding: 25px 25px 25px 25px;
+}
+
+.btn-danger{
+    position: relative;
+    left: 35%;
+    right: auto;
+}
+
+.btn-warning{
+    position: relative;
+    right: auto;
+    left: 45%;
 }
