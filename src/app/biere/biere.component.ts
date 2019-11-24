@@ -45,7 +45,7 @@ export class BiereComponent implements OnInit {
     setTimeout(() => this.deleteVisu.emit(this.b), ANIMATION_TIME + 50)
   }
   modif() {
-    console.log(this.b);
+    // console.log(this.b);
     // this.biereAModif = this.b;
   }
 

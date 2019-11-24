@@ -71,8 +71,8 @@ export class ListBiereComponent implements OnInit {
   }
 
   addBiere() {
-    console.log("Ajout de la bière", this.nomB);
-    console.log("url de son image", this.urlB);
+    // console.log("Ajout de la bière", this.nomB);
+    // console.log("url de son image", this.urlB);
     this.bieres.push({
       id: this.bieres.reduce((acc, t) => acc <= t.id ? t.id + 1 : acc, 1),
       nom: this.nomB.value,
@@ -95,7 +95,7 @@ export class ListBiereComponent implements OnInit {
   }
 
   deleteBiere(biere: Biere) {
-    console.log("suppression de la biere : ", biere);
+    // console.log("suppression de la biere : ", biere);
     this.bieres = this.bieres.filter(t => t.id !== biere.id);
     this.saveBieres();
   }
