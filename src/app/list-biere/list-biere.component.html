@@ -1,23 +1,33 @@
-<p class="text-center">list-biere works!</p>
+<p class="text-center">Une liste de bières...</p>
 <div class="container pleineLargeur">
     <div class="row">
         <div class="col">
-            <div class="ListBieres container listesBieres">
+            <div class="ListBieres container listesBieres shadow">
                 <!-- <app-biere *ngFor="let biere of bieres"></app-biere> -->
-                <app-biere *ngFor="let biere of bieres" [b]="biere" ></app-biere>
+                <app-biere *ngFor="let biere of bieres" [b]="biere"></app-biere>
             </div>
         </div>
     </div>
 </div>
 <!-- FORM BIERE -->
+<div class="row">
+        <div class="col justify-content-center">
+            <p class="text-center">
+                Nom de la Bière (ReactiveForm): <br />{{ nomB.value }}
+            </p>
+        </div>
+    </div>
+
+
 <!-- <form class="container" name="formNewBiere"> -->
-<div class="container" name="formNewBiere" id="formNewBiere">
+<div class="container shadow" name="formNewBiere" id="formNewBiere">
     <fieldset>
         <legend class="text-center  ">CREER UNE NOUVELLE FICHE BIERE :</legend>
         <div class="row">
             <div class=" col input-group-append">
                 <mat-form-field class="largeurEcran">
-                    <input matInput type="text" placeholder="Nom de la Bière..." name="nom" [(ngModel)]="nomB" />
+                    <!-- <input matInput type="text" placeholder="Nom de la Bière..." name="nom" [(ngModel)]="nomB" /> -->
+                    <input matInput type="text" placeholder="Nom de la Bière..." name="nom" [formControl]="nomB" />
                 </mat-form-field>
             </div>
         </div>
@@ -94,4 +104,5 @@
         </div>
     </div>
 </div>
+
 <!-- </form> -->

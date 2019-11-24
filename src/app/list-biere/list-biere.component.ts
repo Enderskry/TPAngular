@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Biere from '../biere';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-list-biere',
@@ -8,7 +9,7 @@ import Biere from '../biere';
 })
 export class ListBiereComponent implements OnInit {
   bieres: Biere[];
-  nomB: string;
+  nomB = new FormControl("");
   typeB: string;
   degreB: number;
   formatB: number;
@@ -36,7 +37,7 @@ export class ListBiereComponent implements OnInit {
     console.log("url de son image", this.urlB);
     this.bieres.push({
       id: this.bieres.reduce((acc, t) => acc <= t.id ? t.id + 1 : acc, 1),
-      nom: this.nomB,
+      nom: this.nomB.value,
       type: this.typeB,
       degre: this.degreB,
       format: this.formatB,
@@ -45,6 +46,14 @@ export class ListBiereComponent implements OnInit {
       dateCreation: this.dateCreationB
     });
     this.saveBieres();
+    this.nomB.setValue(''); // reactive Form
+    this.typeB = null;
+    this.degreB = null;
+    this.formatB = null;
+    this.prixB = null;
+    this.urlB = null;
+    this.dateCreationB = null;
+
   }
 
   deleteBiere(biere: Biere) {
