@@ -8,7 +8,13 @@ import Biere from '../biere';
 })
 export class ListBiereComponent implements OnInit {
   bieres: Biere[];
-  newBiere: Biere;
+  nomB: string;
+  typeB: string;
+  degreB: number;
+  formatB: number;
+  prixB: number;
+  urlB: string;
+  dateCreationB: string;
 
   constructor() { }
 
@@ -26,16 +32,17 @@ export class ListBiereComponent implements OnInit {
   }
 
   addBiere() {
-    console.log("Ajout de la bière", this.newBiere);
+    console.log("Ajout de la bière", this.nomB);
+    console.log("url de son image", this.urlB);
     this.bieres.push({
       id: this.bieres.reduce((acc, t) => acc <= t.id ? t.id + 1 : acc, 1),
-      nom: this.newBiere.nom,
-      type: this.newBiere.type,
-      degre: this.newBiere.degre,
-      format: this.newBiere.format,
-      prix: this.newBiere.prix,
-      url: this.newBiere.url,
-      dateCreation: this.newBiere.dateCreation
+      nom: this.nomB,
+      type: this.typeB,
+      degre: this.degreB,
+      format: this.formatB,
+      prix: this.prixB,
+      url: this.urlB,
+      dateCreation: this.dateCreationB
     });
     this.saveBieres();
   }

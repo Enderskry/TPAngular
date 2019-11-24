@@ -6,5 +6,5 @@ export default interface Biere {
     format: number;
     prix: number;
     url: string;
-    dateCreation: Date;
+    dateCreation: string;
 }

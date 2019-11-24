@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import Biere from '../biere';
 
 @Component({
   selector: 'app-biere',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./biere.component.css']
 })
 export class BiereComponent implements OnInit {
+  
+  @Input()
+  b: Biere
 
   constructor() { }
 
   ngOnInit() {
+    // console.log(this.b.nom);
   }
 
 }
