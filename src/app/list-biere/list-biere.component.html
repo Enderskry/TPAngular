@@ -2,7 +2,7 @@
 <div class="container pleineLargeur">
     <div class="row">
         <div class="col">
-            <div class="ListBieres container listesBieres shadow">
+            <div class="ListBieres container listesBieres shadow" [@animCreaBiere]="animCreaBiere">
                 <!-- <app-biere *ngFor="let biere of bieres"></app-biere> -->
                 <app-biere *ngFor="let biere of bieres" [b]="biere"></app-biere>
             </div>

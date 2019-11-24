@@ -1,3 +1,4 @@
+import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import Biere from '../biere';
 import { FormControl } from '@angular/forms';
@@ -5,7 +6,22 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-list-biere',
   templateUrl: './list-biere.component.html',
-  styleUrls: ['./list-biere.component.css']
+  styleUrls: ['./list-biere.component.css'],
+  animations: [
+    trigger('animCreaBiere', [
+      transition('* => *', [
+        query(':enter', style({ opacity: 0 }), { optional: true }),
+
+        query(':enter', stagger('300ms', [
+          animate('1s ease-in', keyframes([
+            style({ opacity: 0, transform: 'translateY(-75%)', offset: 0 }),
+            style({ opacity: .5, transform: 'translateY(35px)', offset: .3 }),
+            style({ opacity: 1, transform: 'translateY(0px)', offset: 1 })
+          ]))
+        ]), { optional: true })
+      ])
+    ])
+  ]
 })
 export class ListBiereComponent implements OnInit {
   bieres: Biere[];

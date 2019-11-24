@@ -1,16 +1,13 @@
 <div class="row uneBiere shadow">
-    <div class="col">
-
+    <div class="col" >
         <h4 class="text-center">{{ b.nom | titlecase }}</h4>
         <p>Type : {{ b.type | titlecase }}</p>
         <p>Alcool : {{b.degre}}° </p>
         <p>Format : {{b.format}} cl</p>
         <p>Prix : {{b.prix  | currency:'EUR'}}</p>
-        <p>Url de l'image :
-            <a href="{{b.url}}" target="_blank">
-                {{b.url | urlCourte }}
-            </a>
-        </p>
+        <img src="{{b.url}}" width="20%" height="auto">
+        <p>(Image recupérée sur :
+            <a href="{{b.url}}" target="_blank">{{b.url | urlCourte }}</a>)</p>
         <p>Date de création de {{ b.nom | titlecase }} : {{ b.dateCreation | date:"MM/dd/yy" }}</p>
 
     </div>
