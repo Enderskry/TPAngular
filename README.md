@@ -2,9 +2,9 @@
 
 ## Champs:
 - Nom de la bière (custom Pipe pour première lettre en majuscule)                 {pipe Titre: OK}
-- Type de la bière (select option: blonde, brune, etc...)
-- Degré d'alcool (custom pipe pour ajouter le sugne 'degré')
-- Format (custom pipe pour ajouter 'cl')
+- Type de la bière (select option: blonde, brune, etc...)                         {pipe Titre: OK}
+- Degré d'alcool (~~custom pipe pour ajouter le signe 'degré'~~) ajouté en dur
+- Format (~~custom pipe pour ajouter 'cl'~~) ajouté en dur
 - Prix (Pipe pour ajouter 'Euros')                                                {pipe Euros: OK}
 - URL de la photo (ou upload en localStorage)                                     {custom Pipe pour url court: OK}
 - Date de création de la fiche (pipe pour formatter la date) - champs automatique {pipe format Date: OK}

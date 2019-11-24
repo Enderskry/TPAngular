@@ -9,6 +9,7 @@
         <p>(Image recupérée sur :
             <a href="{{b.url}}" target="_blank">{{b.url | urlCourte }}</a>)</p>
         <p>Date de création de {{ b.nom | titlecase }} : {{ b.dateCreation | date:"MM/dd/yy" }}</p>
-
     </div>
 </div>
+<button type="button" class="btn btn-danger" (click)="delete()">Supprimer</button>
+<button type="button" class="btn btn-warning">Modifier</button>
