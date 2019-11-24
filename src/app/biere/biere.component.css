@@ -4,3 +4,15 @@
     margin:20px 5px 20px 5px;
     width: 100%;
 }
+
+.btn-danger{
+    position: relative;
+    left: 35%;
+    right: auto;
+}
+
+.btn-warning{
+    position: relative;
+    right: auto;
+    left: 45%;
+}
